@@ -1,0 +1,160 @@
+params:
+  random_seed: 42
+experiment_type: "deit3b_dataloaders"
+# eval_type: "ood_det" # tmp
+eval_type: "ood_gen" # tmp
+results_save_path: "./result_pickles/deit3b_ood_gen_tmp.pkl" # tmp
+logging:
+#   gdrive_storage_folder: "https://drive.google.com/drive/folders/1bCKbgY29CXsgYSwBHk49weolkA5cBePT?usp=share_link"
+  use_wandb: False
+  use_tb: False
+
+cached_datasets_info:
+    ood_det_keys: [
+        'in_val',
+        # 'imagenet_a',
+        # 'imagenet_r',
+        # 'mixed_rand',
+        # 'mixed_next',
+        # 'cue-conflict',
+        # 'stylized',
+        'iNaturalist',
+        'OpenImages',
+        'brightness_1',
+        'brightness_5',
+        'contrast_1',
+        'contrast_5',
+        'defocus_blur_1',
+        'defocus_blur_5',
+        'elastic_transform_1',
+        'elastic_transform_5',
+        'fog_1',
+        'fog_5',
+        'frost_1',
+        'frost_5',
+        'gaussian_noise_1',
+        'gaussian_noise_5',
+        'glass_blur_1',
+        'glass_blur_5',
+        'impulse_noise_1',
+        'impulse_noise_5',
+        'jpeg_compression_1',
+        'jpeg_compression_5',
+        'motion_blur_1',
+        'motion_blur_5',
+        'pixelate_1',
+        'pixelate_5',
+        'shot_noise_1',
+        'shot_noise_5',
+        'snow_1',
+        'snow_5',
+        'zoom_blur_1',
+        'zoom_blur_5'
+    ]
+    ood_gen_keys: [
+        'in_val',
+        'imagenet_a',
+        'imagenet_r',
+        # 'mixed_rand',
+        # 'mixed_next',
+        # 'cue-conflict',
+        # 'stylized',
+        'iNaturalist',
+        'OpenImages',
+        'brightness_1',
+        'brightness_5',
+        'contrast_1',
+        'contrast_5',
+        'defocus_blur_1',
+        'defocus_blur_5',
+        'elastic_transform_1',
+        'elastic_transform_5',
+        'fog_1',
+        'fog_5',
+        'frost_1',
+        'frost_5',
+        'gaussian_noise_1',
+        'gaussian_noise_5',
+        'glass_blur_1',
+        'glass_blur_5',
+        'impulse_noise_1',
+        'impulse_noise_5',
+        'jpeg_compression_1',
+        'jpeg_compression_5',
+        'motion_blur_1',
+        'motion_blur_5',
+        'pixelate_1',
+        'pixelate_5',
+        'shot_noise_1',
+        'shot_noise_5',
+        'snow_1',
+        'snow_5',
+        'zoom_blur_1',
+        'zoom_blur_5'
+    ]
+    wrappers:
+        imagenet_a: ina
+        imagenet_r: inr
+    path_mapping:
+        in_val: ./data/datasets/cached/in_val_deit3b_-1.hdf5
+        # in_cs
+        snow_5: ./data/datasets/cached/Snow_5/f245dd6976ed846f2e98_torch_load_block_-1_model_Snow_5_dataset_1_epochs_50000_samples.hdf5
+        jpeg_compression_1: ./data/datasets/cached/JPEG Compression_1/01249fa5a2fefca8df44_torch_load_block_-1_model_JPEG Compression_1_dataset_1_epochs_50000_samples.hdf5
+        elastic_transform_5: ./data/datasets/cached/Elastic Transform_5/e66b8c8ee6c13c5ae3f2_torch_load_block_-1_model_Elastic Transform_5_dataset_1_epochs_50000_samples.hdf5
+        zoom_blur_5: ./data/datasets/cached/Zoom Blur_5/3f50303a2e87f30cba0c_torch_load_block_-1_model_Zoom Blur_5_dataset_1_epochs_50000_samples.hdf5
+        glass_blur_1: ./data/datasets/cached/Glass Blur_1/6c9e90c11ce99d332547_torch_load_block_-1_model_Glass Blur_1_dataset_1_epochs_50000_samples.hdf5
+        zoom_blur_1: ./data/datasets/cached/Zoom Blur_1/80ceeb0cf71e8b72e411_torch_load_block_-1_model_Zoom Blur_1_dataset_1_epochs_50000_samples.hdf5
+        brightness_1: ./data/datasets/cached/Brightness_1/4c905e75df34398dcc32_torch_load_block_-1_model_Brightness_1_dataset_1_epochs_50000_samples.hdf5
+        fog_1: ./data/datasets/cached/Fog_1/a53af9339a7f1b0b0cff_torch_load_block_-1_model_Fog_1_dataset_1_epochs_50000_samples.hdf5
+        shot_noise_5: ./data/datasets/cached/Shot Noise_5/d25ecb59430dcdc330ad_torch_load_block_-1_model_Shot Noise_5_dataset_1_epochs_50000_samples.hdf5
+        glass_blur_5: ./data/datasets/cached/Glass Blur_5/2ba45b43aeadbbebc5cf_torch_load_block_-1_model_Glass Blur_5_dataset_1_epochs_50000_samples.hdf5
+        contrast_5: ./data/datasets/cached/Contrast_5/54d0f994faaa377581e1_torch_load_block_-1_model_Contrast_5_dataset_1_epochs_50000_samples.hdf5
+        contrast_1: ./data/datasets/cached/Contrast_1/06f60745c654a9520111_torch_load_block_-1_model_Contrast_1_dataset_1_epochs_50000_samples.hdf5
+        elastic_transform_1: ./data/datasets/cached/Elastic Transform_1/acf79ca55ab4d737e110_torch_load_block_-1_model_Elastic Transform_1_dataset_1_epochs_50000_samples.hdf5
+        defocus_blur_1: ./data/datasets/cached/Defocus Blur_1/17f72b4737ec07ba4bd6_torch_load_block_-1_model_Defocus Blur_1_dataset_1_epochs_50000_samples.hdf5
+        pixelate_1: ./data/datasets/cached/Pixelate_1/e79420e9ba75df1c85f4_torch_load_block_-1_model_Pixelate_1_dataset_1_epochs_50000_samples.hdf5
+        fog_5: ./data/datasets/cached/Fog_5/26ec818e0e1aead12d19_torch_load_block_-1_model_Fog_5_dataset_1_epochs_50000_samples.hdf5
+        defocus_blur_5: ./data/datasets/cached/Defocus Blur_5/7f3110448c3ed8d9358e_torch_load_block_-1_model_Defocus Blur_5_dataset_1_epochs_50000_samples.hdf5
+        impulse_noise_5: ./data/datasets/cached/Impulse Noise_5/23e3b3a61c287e4faccf_torch_load_block_-1_model_Impulse Noise_5_dataset_1_epochs_50000_samples.hdf5
+        shot_noise_1: ./data/datasets/cached/Shot Noise_1/caa167b4008437dfcb14_torch_load_block_-1_model_Shot Noise_1_dataset_1_epochs_50000_samples.hdf5
+        snow_1: ./data/datasets/cached/Snow_1/3bceaf6152ba08e6b53f_torch_load_block_-1_model_Snow_1_dataset_1_epochs_50000_samples.hdf5
+        gaussian_noise_1: ./data/datasets/cached/Gaussian Noise_1/bfcca316bfafcb81b0fb_torch_load_block_-1_model_Gaussian Noise_1_dataset_1_epochs_50000_samples.hdf5
+        impulse_noise_1: ./data/datasets/cached/Impulse Noise_1/89c69318456d3562dec5_torch_load_block_-1_model_Impulse Noise_1_dataset_1_epochs_50000_samples.hdf5
+        frost_1: ./data/datasets/cached/Frost_1/212c00d15df5bb8f6ee3_torch_load_block_-1_model_Frost_1_dataset_1_epochs_50000_samples.hdf5
+        frost_5: ./data/datasets/cached/Frost_5/8966e493e280bdd3f429_torch_load_block_-1_model_Frost_5_dataset_1_epochs_50000_samples.hdf5
+        pixelate_5: ./data/datasets/cached/Pixelate_5/9dfdc488399ede57caae_torch_load_block_-1_model_Pixelate_5_dataset_1_epochs_50000_samples.hdf5
+        jpeg_compression_5: ./data/datasets/cached/JPEG Compression_5/9df87ead629ce19e8382_torch_load_block_-1_model_JPEG Compression_5_dataset_1_epochs_50000_samples.hdf5
+        motion_blur_1: ./data/datasets/cached/Motion Blur_1/97b8fb397256779609f6_torch_load_block_-1_model_Motion Blur_1_dataset_1_epochs_50000_samples.hdf5
+        brightness_5: ./data/datasets/cached/Brightness_5/ef1173603b558d0a45ac_torch_load_block_-1_model_Brightness_5_dataset_1_epochs_50000_samples.hdf5
+        gaussian_noise_5: ./data/datasets/cached/Gaussian Noise_5/bd673de597fcc458c6a8_torch_load_block_-1_model_Gaussian Noise_5_dataset_1_epochs_50000_samples.hdf5
+        motion_blur_5: ./data/datasets/cached/Motion Blur_5/9b039bf01d50d7da9fc3_torch_load_block_-1_model_Motion Blur_5_dataset_1_epochs_50000_samples.hdf5
+        # datasets for ood detection
+        iNaturalist: ./data/datasets/cached/inat_deit3b_-1_.hdf5
+        OpenImages: ./data/datasets/cached/oi_deit3b_-1_.hdf5
+        # datasets for ood generalization
+        imagenet_a: ./data/datasets/cached/in_a_deit3b_-1_.hdf5
+        imagenet_r: ./data/datasets/cached/in_r_deit3b_-1_.hdf5
+
+models:
+
+    total_groups: 4
+
+    ood_gen:
+        fields: null
+        model_group_prefix: ood_gen_
+        model_paths: "./models/symlinked/ood_gen.pkl"
+
+    ood_det_cov:
+        fields: null
+        model_group_prefix: ood_det_cov_
+        model_paths: "./models/symlinked/ood_det_cov.pkl"
+
+    ood_det_sem:
+        fields: null
+        model_group_prefix: ood_det_sem_
+        model_paths: "./models/symlinked/ood_det_sem.pkl"
+
+    50_models:
+        fields: null
+        model_group_prefix: 50_models_
+        model_paths: "./models/symlinked/50_models.pkl"

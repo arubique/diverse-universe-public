@@ -1,0 +1,13 @@
+params:
+  random_seed: 42
+is_python: True
+
+exec_path: ./diverse_universe/caching/main.py
+conda_env: ./envs/diverse_universe
+
+kwargs:
+  model: <placeholder>
+  layer_cutoff: <placeholder>
+  original_dataset_name: <placeholder>
+  original_dataset_path: <placeholder>
+  cache_save_path: <placeholder>

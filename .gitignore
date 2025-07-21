@@ -1,3 +1,12 @@
+# root auxilary folders
+data
+result_pickles
+models
+envs
+experiments
+tmp
+*.lock
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
